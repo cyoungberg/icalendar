@@ -28,7 +28,7 @@ module Icalendar
     ical_property :description
 
     # Specifies the timezone for the event
-    attr_accessor :tzid
+    ical_property :tzid
 
     # Specifies date-time when calendar component begins
     ical_property :dtstart, :start
