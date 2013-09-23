@@ -216,7 +216,11 @@ module Icalendar
 
     def parse_line(line)
       unless line =~ %r{#{LINE}}i # Case insensitive match for a valid line
-        raise "Invalid line in calendar string!"
+        if strict
+          raise "Invalid line in calendar string!"
+        else
+          return { :name => '', :value => '', :params => '' }
+        end
       end
 
       name = $1.upcase # The case insensitive part is upcased for easier comparison...
